@@ -20,20 +20,27 @@ class CrimeListViewModel : ViewModel() {
         viewModelScope.launch {
 
             Log.d(TAG, "coroutine started")
-            delay(5000)
 
-            for (i in 0 until 100) {
-                val crime = Crime(
-                    id = UUID.randomUUID(),
-                    title = "Crime #$i",
-                    date = Date(),
-                    isSolved = i % 2 == 0
-                )
-
-                crimes += crime
-            }
-
+            crimes += loadCrimes()
             Log.d(TAG, "Loading crimes finished")
         }
+    }
+
+    // Note the delay. It simulates the time that it would take to make a massive query to a database to populate a view
+
+    suspend fun loadCrimes():List<Crime> {
+        val result = mutableListOf<Crime>()
+
+        delay(5000)
+        for (i in 0 until 100) {
+            val crime = Crime(
+                id = UUID.randomUUID(),
+                title = "Crime #$i",
+                date = Date(),
+                isSolved = i % 2 == 0
+            )
+            result += crime
+        }
+        return result
     }
 }
