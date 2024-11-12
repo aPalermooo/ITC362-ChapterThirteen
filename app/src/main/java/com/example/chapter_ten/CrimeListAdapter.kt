@@ -42,11 +42,6 @@ class CrimeListAdapter ( private  val crimes : List<Crime> ) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
         val crime = crimes[position]
-//        // Moved into holder
-//        holder.apply {
-//            binding.crimeTitle.text = crime.title
-//            binding.crimeDate.text = crime.date.toString()
-//        }
 
         holder.bind(crime)
     }
