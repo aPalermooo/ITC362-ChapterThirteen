@@ -4,14 +4,14 @@ import android.icu.text.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+//import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chapter_ten.databinding.ListItemCrimeBinding
 import java.util.Locale
 
 
 class CrimeHolder( private val binding : ListItemCrimeBinding ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind (crime: Crime) {
+        fun bind (crime: Crime, onCrimeClicked: () -> Unit) {
             binding.crimeTitle.text = crime.title
 
             // Exercise 3b
@@ -21,7 +21,8 @@ class CrimeHolder( private val binding : ListItemCrimeBinding ) : RecyclerView.V
             binding.crimeDate.text = crimeDate
 
             binding.root.setOnClickListener {
-                Toast.makeText( binding.root.context, "${crime.title} click", Toast.LENGTH_SHORT).show()
+//                Toast.makeText( binding.root.context, "${crime.title} click", Toast.LENGTH_SHORT).show()
+                onCrimeClicked()
             }
             binding.crimeSolved.visibility = if (crime.isSolved) {
                 View.VISIBLE
@@ -31,7 +32,7 @@ class CrimeHolder( private val binding : ListItemCrimeBinding ) : RecyclerView.V
         }
     }
 
-class CrimeListAdapter ( private  val crimes : List<Crime> ) : RecyclerView.Adapter<CrimeHolder>() {
+class CrimeListAdapter ( private  val crimes : List<Crime>, private val onCrimeClicked: () -> Unit ) : RecyclerView.Adapter<CrimeHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrimeHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListItemCrimeBinding.inflate(inflater, parent, false)
@@ -43,6 +44,6 @@ class CrimeListAdapter ( private  val crimes : List<Crime> ) : RecyclerView.Adap
     override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
         val crime = crimes[position]
 
-        holder.bind(crime)
+        holder.bind(crime, onCrimeClicked)
     }
 }
