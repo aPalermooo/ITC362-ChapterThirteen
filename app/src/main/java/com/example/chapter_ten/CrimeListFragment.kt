@@ -1,7 +1,6 @@
 package com.example.chapter_ten
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +11,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chapter_ten.databinding.FragmentCrimeListBinding
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-private const val TAG = "CrimeListFragment"
+//import android.util.Log
+//private const val TAG = "CrimeListFragment"
 
 class CrimeListFragment : Fragment() {
 
@@ -52,7 +51,9 @@ class CrimeListFragment : Fragment() {
 
     }
 
-/*  Another Method of removing the race condition from loading a UI on a separate thread
+/*
+    Another Method of removing the race condition from loading a UI on a separate thread
+
     private var job: Job? = null
 
     override fun onStart() {
@@ -70,9 +71,8 @@ class CrimeListFragment : Fragment() {
         super.onStop()
 
         job?.cancel()
-
-
-    }*/
+    }
+*/
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

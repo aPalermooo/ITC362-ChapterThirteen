@@ -11,7 +11,7 @@ private const val TAG = "CrimeListViewModel"
 
 class CrimeListViewModel : ViewModel() {
 
-    val crimes = mutableListOf<Crime>()
+    private val crimes = mutableListOf<Crime>()
 
     init {
 
