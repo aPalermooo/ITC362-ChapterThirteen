@@ -2,6 +2,7 @@ package com.example.chapter_ten.database
 
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Update
 import com.example.chapter_ten.Crime
 import java.util.UUID
 import kotlinx.coroutines.flow.Flow
@@ -18,4 +19,7 @@ interface CrimeDao {
 
     @Query("Select * From crime Where id=(:id)")
     suspend fun getCrime( id : UUID) : Crime
+
+    @Update
+    suspend fun updateCrime(crime: Crime)
 }
