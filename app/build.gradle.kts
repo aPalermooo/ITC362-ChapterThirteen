@@ -60,6 +60,7 @@ dependencies {
     //Rooms
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.ui.test.android)
 
     //KSP
     ksp(libs.moshi.kotlin.codegen)
