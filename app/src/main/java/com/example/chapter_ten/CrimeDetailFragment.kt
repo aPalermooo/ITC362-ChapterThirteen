@@ -31,7 +31,7 @@ class CrimeDetailFragment :Fragment(){
     private val args: CrimeDetailFragmentArgs by navArgs()
 
     private val crimeDetailViewModel: CrimeDetailViewModel by viewModels {
-        CrimeDetailViewModelFactory(args.crimeId)
+        CrimeDetailViewModel.CrimeDetailViewModelFactory(args.crimeId)
     }
 
     //private lateinit var binding :FragmentCrimeDetailBinding

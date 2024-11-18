@@ -44,4 +44,4 @@ class CrimeDetailViewModelFactory(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return CrimeDetailViewModel(crimeId) as T
     }
-}
+}}
